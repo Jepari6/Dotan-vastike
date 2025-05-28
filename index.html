@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelaa pelejä!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .buttons-container {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .image-container {
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 80%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            display: none; /* Kuvat ovat aluksi piilossa */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Valitse peli!</h1>
+
+    <div class="buttons-container">
+        <button id="dotaButton">Pelaa yks Dota</button>
+        <button id="pummelButton">Pelaa yks Pummel</button>
+    </div>
+
+    <div class="image-container">
+        <img id="dotaImage" src="dota_kuva.gif" alt="Hahmo saa remmistä takamukselle">
+        <img id="pummelImage" src="pummel_kuva.gif" alt="Hahmo hymyilee leveästi">
+    </div>
+
+    <script>
+        // Haetaan napit ja kuvat DOM:ista
+        const dotaButton = document.getElementById('dotaButton');
+        const pummelButton = document.getElementById('pummelButton');
+        const dotaImage = document.getElementById('dotaImage');
+        const pummelImage = document.getElementById('pummelImage');
+
+        // Funktio, joka piilottaa kaikki kuvat
+        function hideAllImages() {
+            dotaImage.style.display = 'none';
+            pummelImage.style.display = 'none';
+        }
+
+        // Lisätään tapahtumakuuntelija Dota-napille
+        dotaButton.addEventListener('click', () => {
+            hideAllImages(); // Piilotetaan ensin kaikki kuvat
+            dotaImage.style.display = 'block'; // Näytetään Dota-kuva
+        });
+
+        // Lisätään tapahtumakuuntelija Pummel-napille
+        pummelButton.addEventListener('click', () => {
+            hideAllImages(); // Piilotetaan ensin kaikki kuvat
+            pummelImage.style.display = 'block'; // Näytetään Pummel-kuva
+        });
+    </script>
+
+</body>
+</html>
